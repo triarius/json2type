@@ -23,10 +23,10 @@ Options:
 # To-do
 ## Languages
 - [x] Go
-- [] Rust
-- [] Typescript
+- [ ] Rust
+- [ ] Typescript
 
 ## Features
 - [x] Order preserving
-- [] Format output
-- [] Non-objects as type aliases
+- [ ] Format output
+- [ ] Non-objects as type aliases
