@@ -43,7 +43,7 @@ fn field_node(indent: &str, field: &FieldType) -> String {
             field.name,
         ),
         FieldType::Object(field) => {
-            let mut s = if field.name == "" {
+            let mut s = if field.name.is_empty() {
                 "struct {\n".to_string()
             } else {
                 format!("{indent}\t{} struct {{\n", field_name(&field.name))
@@ -52,7 +52,7 @@ fn field_node(indent: &str, field: &FieldType) -> String {
                 s.push_str(&field_node(&format!("{indent}\t"), field));
             }
             s.push_str(&format!("{indent}\t}}"));
-            if field.name != "" {
+            if !field.name.is_empty() {
                 s.push_str(&format!(" `json:\"{}\"`\n", field.name));
             }
             s
@@ -73,7 +73,7 @@ fn field_type(field: &FieldType) -> String {
 }
 
 fn field_name(name: &str) -> String {
-    name.split("_")
+    name.split('_')
         .map(|s| {
             if s.is_empty() {
                 s.to_string()
